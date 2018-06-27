@@ -1,4 +1,4 @@
-package com.ingi.apthdac;
+package com.ingi.apthdac.Loading;
 
 import android.annotation.SuppressLint;
 import android.support.v7.app.ActionBar;
@@ -7,12 +7,16 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.Toast;
+
+import com.ingi.apthdac.Managers.Managers;
+import com.ingi.apthdac.R;
 
 /**
  * An example full-screen activity that shows and hides the system UI (i.e.
  * status bar and navigation/system bar) with user interaction.
  */
-public class Loading extends AppCompatActivity {
+public class LoadingActivity extends AppCompatActivity implements LoadingView {
     /**
      * Whether or not the system UI should be auto-hidden after
      * {@link #AUTO_HIDE_DELAY_MILLIS} milliseconds.
@@ -106,6 +110,14 @@ public class Loading extends AppCompatActivity {
         // operations to prevent the jarring behavior of controls going away
         // while interacting with the UI.
         findViewById(R.id.dummy_button).setOnTouchListener(mDelayHideTouchListener);
+
+        LoadingPresenter loadingPresenter = new LoadingPresenter();
+        loadingPresenter.setLoginManager(Managers.getInstance().getLoginManager());
+        if(loadingPresenter.requestLogin("", "")) {
+            Toast.makeText(this, "Login succeed", Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "Login failed", Toast.LENGTH_LONG).show();
+        }
     }
 
     @Override
