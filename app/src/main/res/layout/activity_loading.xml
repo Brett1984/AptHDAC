@@ -2,9 +2,10 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
     <data>
-        <variable name="presenter" type="com.ingi.apthdac.Loading.LoadingPresenter"/>
-        <variable name="view" type="com.ingi.apthdac.Loading.LoadingView"/>
-        <variable name="activity" type="com.ingi.apthdac.Loading.LoadingActivity"/>
+        <variable name="presenter" type="com.ingi.apthdac.scenes.loading.LoadingPresenter"/>
+        <variable name="view" type="com.ingi.apthdac.scenes.loading.LoadingView"/>
+        <variable name="activity" type="com.ingi.apthdac.scenes.loading.LoadingActivity"/>
+        <variable name="loginInformation" type="com.ingi.apthdac.common.models.LoginInformation"/>
     </data>
 
     <LinearLayout
@@ -12,13 +13,13 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="#FFFFFF"
-        tools:context=".Loading.LoadingActivity">
+        tools:context=".scenes.loading.LoadingActivity">
 
         <RelativeLayout
             android:layout_weight="2"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/ci_backgorund"
+            android:background="@color/ci_background"
             >
             <TextView
                 android:id="@+id/appName"
@@ -60,8 +61,8 @@
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:maxLines="1"
-                    android:inputType="text"
-                    android:text="@={activity.id}"
+                    android:inputType="textNoSuggestions"
+                    android:text="@={loginInformation.id}"
                     />
             </LinearLayout>
 
@@ -82,14 +83,14 @@
                     android:layout_marginRight="10dp"
                     android:gravity="center"
                     android:alpha="0.7"
-                    />
+                    android:layout_marginEnd="10dp" />
                 <EditText
                     android:layout_width="250dp"
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:maxLines="1"
                     android:inputType="textPassword"
-                    android:text="@={activity.password}"
+                    android:text="@={loginInformation.password}"
                     />
             </LinearLayout>
 
@@ -131,6 +132,7 @@
                 android:paddingRight="40dp"
                 android:layout_below="@id/or"
                 android:maxLines="1"
+                android:onClick="@{activity::onSigninClick}"
                 />
 
             <RelativeLayout
@@ -144,7 +146,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Powered by "
-                    android:textColor="@color/ci_backgorund"
+                    android:textColor="@color/ci_background"
                     android:textSize="23sp"
                     android:textStyle="bold"
                     android:layout_centerHorizontal="true"
@@ -152,12 +154,14 @@
                     />
 
                 <ImageView
+                    android:id="@+id/hdacLogo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_toRightOf="@id/poweredby"
                     android:paddingTop="3dp"
-                    android:src="@drawable/hdac_logo" />
+                    android:src="@drawable/hdac_logo"
+                    android:layout_toEndOf="@id/poweredby" />
             </RelativeLayout>
         </RelativeLayout>
     </LinearLayout>

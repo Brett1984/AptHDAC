@@ -1,12 +1,17 @@
-package com.ingi.apthdac.Managers;
+package com.ingi.apthdac.common.managers;
+
+import com.ingi.apthdac.common.models.LoginInformation;
 
 import java.util.concurrent.Executors;
 import java.util.concurrent.ExecutorService;
+
+import lombok.Getter;
 
 /**
  * 로그인 관리자
  */
 public class LoginManager {
+    @Getter private LoginInformation loginInformation = new LoginInformation();
 
     /**
      * 로그인 처리 결과를 리턴하기 위한 콜백 정의

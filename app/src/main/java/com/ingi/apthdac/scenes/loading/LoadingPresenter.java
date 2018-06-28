@@ -1,13 +1,13 @@
-package com.ingi.apthdac.Loading;
+package com.ingi.apthdac.scenes.loading;
 
-import com.ingi.apthdac.Managers.LoginManager;
+import com.ingi.apthdac.common.managers.LoginManager;
+import com.ingi.apthdac.common.models.LoginInformation;
 import com.ingi.apthdac.common.Presenter;
 
 import lombok.Setter;
 
 public class LoadingPresenter implements Presenter<LoadingView> {
     @Setter LoginManager loginManager;
-
     private LoadingView loadingView;
 
     @Override
@@ -28,7 +28,12 @@ public class LoadingPresenter implements Presenter<LoadingView> {
             detachView();
     }
 
-    public boolean requestLogin(String id, String pass) {
-        return loginManager.loginSync(id, pass);
+    public LoginInformation getLoginInformation() {
+        return loginManager.getLoginInformation();
+    }
+
+    public boolean requestLogin() {
+        LoginInformation information = loginManager.getLoginInformation();
+        return loginManager.loginSync(information.getId(), information.getPassword());
     }
 }

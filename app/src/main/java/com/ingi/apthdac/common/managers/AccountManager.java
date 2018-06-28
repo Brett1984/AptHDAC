@@ -1,4 +1,4 @@
-package com.ingi.apthdac.Managers;
+package com.ingi.apthdac.common.managers;
 
 import lombok.Data;
 
