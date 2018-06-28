@@ -1,5 +1,6 @@
 package com.ingi.apthdac.scenes.loading;
 
+import android.content.Intent;
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,7 @@ import com.ingi.apthdac.common.managers.Managers;
 import com.ingi.apthdac.R;
 import com.ingi.apthdac.common.models.LoginInformation;
 import com.ingi.apthdac.databinding.ActivityLoadingBinding;
+import com.ingi.apthdac.scenes.signup.SignUpActivity;
 
 public class LoadingActivity extends BaseActivity implements LoadingView {
     ActivityLoadingBinding binding;
@@ -19,6 +21,9 @@ public class LoadingActivity extends BaseActivity implements LoadingView {
     LoginInformation information;
     CoreApplication coreApplication;
     SharedPreferencesManager sharedPreferencesManager;
+
+    // Const
+    final public int FROM_SIGNUP = 1001;
 
 
     @Override
@@ -52,7 +57,8 @@ public class LoadingActivity extends BaseActivity implements LoadingView {
         }
     }
 
-    public void onSigninClick(View view) {
-
+    public void onSignupClick(View view) {
+        Intent intent = new Intent(this, SignUpActivity.class);
+        startActivityForResult(intent, FROM_SIGNUP);
     }
 }

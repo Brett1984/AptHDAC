@@ -122,17 +122,17 @@
 
 
             <Button
-                android:id="@+id/signinButton"
+                android:id="@+id/signupButton"
                 android:layout_width="160dp"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:text="SIGN IN"
+                android:text="SIGN UP"
                 android:textSize="20sp"
                 android:paddingLeft="40dp"
                 android:paddingRight="40dp"
                 android:layout_below="@id/or"
                 android:maxLines="1"
-                android:onClick="@{activity::onSigninClick}"
+                android:onClick="@{activity::onSignupClick}"
                 />
 
             <RelativeLayout
