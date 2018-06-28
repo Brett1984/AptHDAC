@@ -13,6 +13,7 @@ public class Managers {
 
     @Getter
     LoginManager loginManager;
+    AccountManager accountManager;
 
     private Managers() {
         loginManager = new LoginManager();

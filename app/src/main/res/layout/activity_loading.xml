@@ -1,51 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#0099cc"
-    tools:context=".Loading.LoadingActivity">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable name="presenter" type="com.ingi.apthdac.Loading.LoadingPresenter"/>
+        <variable name="view" type="com.ingi.apthdac.Loading.LoadingView"/>
+        <variable name="activity" type="com.ingi.apthdac.Loading.LoadingActivity"/>
+    </data>
 
-    <!-- The primary full-screen view. This can be replaced with whatever view
-         is needed to present your content, e.g. VideoView, SurfaceView,
-         TextureView, etc. -->
-    <TextView
-        android:id="@+id/fullscreen_content"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="center"
-        android:keepScreenOn="true"
-        android:text="@string/loading"
-        android:textColor="#33b5e5"
-        android:textSize="50sp"
-        android:textStyle="bold" />
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        tools:context=".Loading.LoadingActivity">
 
-    <!-- This FrameLayout insets its children based on system windows using
-         android:fitsSystemWindows. -->
-    <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:fitsSystemWindows="true">
-
-        <LinearLayout
-            android:id="@+id/fullscreen_content_controls"
-            style="?metaButtonBarStyle"
+        <RelativeLayout
+            android:layout_weight="2"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center_horizontal"
-            android:background="@color/black_overlay"
-            android:orientation="horizontal"
-            tools:ignore="UselessParent">
+            android:layout_height="match_parent"
+            android:background="@color/ci_backgorund"
+            >
+            <TextView
+                android:id="@+id/appName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:layout_centerInParent="true"
+                android:keepScreenOn="true"
+                android:text="@string/app_name"
+                android:textColor="#FFFFFF"
+                android:textSize="50sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_weight="1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <LinearLayout
+                android:id="@+id/idLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:orientation="vertical"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="USER NAME OR E-MAIL"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:alpha="0.7"
+                    />
+                <EditText
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:maxLines="1"
+                    android:inputType="text"
+                    android:text="@={activity.id}"
+                    />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/passLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:orientation="vertical"
+                android:layout_below="@id/idLayout"
+                android:layout_marginTop="10dp"
+                >
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="PASSWORD"
+                    android:textSize="15sp"
+                    android:layout_marginRight="10dp"
+                    android:gravity="center"
+                    android:alpha="0.7"
+                    />
+                <EditText
+                    android:layout_width="250dp"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:maxLines="1"
+                    android:inputType="textPassword"
+                    android:text="@={activity.password}"
+                    />
+            </LinearLayout>
 
             <Button
-                android:id="@+id/dummy_button"
-                style="?metaButtonBarButtonStyle"
-                android:layout_width="0dp"
+                android:id="@+id/loginButton"
+                android:layout_width="160dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/dummy_button" />
+                android:layout_centerInParent="true"
+                android:text="Login"
+                android:textSize="20sp"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:layout_below="@id/passLayout"
+                android:layout_marginTop="20dp"
+                android:maxLines="1"
+                android:onClick="@{activity::onLoginClick}"
+                />
 
-        </LinearLayout>
-    </FrameLayout>
+            <TextView
+                android:id="@+id/or"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="OR"
+                android:textSize="20sp"
+                android:layout_below="@id/loginButton"
+                android:gravity="center"
+                android:layout_margin="10dp"
+                />
 
-</FrameLayout>
+
+            <Button
+                android:id="@+id/signinButton"
+                android:layout_width="160dp"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:text="SIGN IN"
+                android:textSize="20sp"
+                android:paddingLeft="40dp"
+                android:paddingRight="40dp"
+                android:layout_below="@id/or"
+                android:maxLines="1"
+                />
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                >
+                <TextView
+                    android:id="@+id/poweredby"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Powered by "
+                    android:textColor="@color/ci_backgorund"
+                    android:textSize="23sp"
+                    android:textStyle="bold"
+                    android:layout_centerHorizontal="true"
+                    android:layout_centerVertical="true"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@id/poweredby"
+                    android:paddingTop="3dp"
+                    android:src="@drawable/hdac_logo" />
+            </RelativeLayout>
+        </RelativeLayout>
+    </LinearLayout>
+</layout>
