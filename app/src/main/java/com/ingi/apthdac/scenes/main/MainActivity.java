@@ -3,13 +3,13 @@ package com.ingi.apthdac.scenes.main;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
 import com.ingi.apthdac.R;
+import com.ingi.apthdac.common.BaseActivity;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity implements MainView {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

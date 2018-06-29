@@ -13,6 +13,7 @@ import com.ingi.apthdac.common.managers.Managers;
 import com.ingi.apthdac.R;
 import com.ingi.apthdac.common.models.LoginInformation;
 import com.ingi.apthdac.databinding.ActivityLoadingBinding;
+import com.ingi.apthdac.scenes.main.MainActivity;
 import com.ingi.apthdac.scenes.signup.SignUpActivity;
 
 public class LoadingActivity extends BaseActivity implements LoadingView {
@@ -51,6 +52,8 @@ public class LoadingActivity extends BaseActivity implements LoadingView {
             sharedPreferencesManager.setString("ID", information.getId());
             sharedPreferencesManager.setString("PASSWORD", information.getPassword());
             Toast.makeText(this, "Login Succeed", Toast.LENGTH_SHORT).show();
+            finish();
+            startActivity(new Intent(this, MainActivity.class));
         } else {
             Toast.makeText(this, "Login failed", Toast.LENGTH_SHORT).show();
         }
