@@ -7,7 +7,7 @@
         <variable name="presenter" type="com.ingi.apthdac.scenes.signup.SignUpPresenter"/>
         <variable name="view" type="com.ingi.apthdac.scenes.signup.SignUpView"/>
         <variable name="activity" type="com.ingi.apthdac.scenes.signup.SignUpActivity"/>
-        <variable name="loginInformation" type="com.ingi.apthdac.common.models.SignUpForm"/>
+        <variable name="signupForm" type="com.ingi.apthdac.common.models.SignUpForm"/>
     </data>
 
     <LinearLayout
@@ -20,25 +20,24 @@
 
         <RelativeLayout
             android:layout_weight="1"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/ci_background"
             >
             <TextView
-                android:id="@+id/appName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:layout_centerInParent="true"
                 android:keepScreenOn="true"
-                android:text="@string/app_name"
+                android:text="Sign Up"
                 android:textColor="#FFFFFF"
-                android:textSize="50sp"
+                android:textSize="40sp"
                 android:textStyle="bold" />
         </RelativeLayout>
 
         <LinearLayout
-            android:layout_weight="3"
+            android:layout_weight="4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="vertical"
@@ -65,7 +64,7 @@
                     android:textSize="20sp"
                     android:maxLines="1"
                     android:inputType="textNoSuggestions"
-                    android:text=""
+                    android:text="@={signupForm.userName}"
                     />
             </LinearLayout>
 
@@ -88,8 +87,8 @@
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:maxLines="1"
-                    android:inputType="textNoSuggestions"
-                    android:text=""
+                    android:inputType="textEmailAddress"
+                    android:text="@={signupForm.email}"
                     />
             </LinearLayout>
 
@@ -112,8 +111,8 @@
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:maxLines="1"
-                    android:inputType="textNoSuggestions"
-                    android:text=""
+                    android:inputType="textPassword"
+                    android:text="@={signupForm.password}"
                     />
             </LinearLayout>
 
@@ -136,8 +135,8 @@
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:maxLines="1"
-                    android:inputType="textNoSuggestions"
-                    android:text=""
+                    android:inputType="textPassword"
+                    android:text="@={signupForm.retypePassword}"
                     />
             </LinearLayout>
 
@@ -151,6 +150,7 @@
                 android:paddingRight="40dp"
                 android:layout_marginTop="40dp"
                 android:maxLines="1"
+                android:onClick="@{activity::onSignupClick}"
                 />
         </LinearLayout>
     </LinearLayout>

@@ -36,7 +36,6 @@ public class LoadingActivity extends BaseActivity implements LoadingView {
 
         loadingPresenter = new LoadingPresenter();
         loadingPresenter.setLoginManager(Managers.getInstance().getLoginManager());
-        LoginInformation information = Managers.getInstance().getLoginManager().getLoginInformation();
         information.setId(sharedPreferencesManager.getString("ID", ""));
         information.setPassword(sharedPreferencesManager.getString("PASSWORD", ""));
 
