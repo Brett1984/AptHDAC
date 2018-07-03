@@ -27,7 +27,8 @@ public class SignUpActivity extends BaseActivity implements SignUpView {
         binding.setView(this);
     }
 
-    public void onSignupClick(View view) {
+    @Override
+    public void onClickSignup(View view) {
         presenter.signup(()-> {
             finish();
             Toast.makeText(this, "Sing Up Succeed", Toast.LENGTH_LONG).show();

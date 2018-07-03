@@ -6,4 +6,12 @@
 
     <string name="loading">Loading...</string>
     <string name="title_activity_main">MainActivity</string>
+
+    <string name="signup_notice">가입 진행 시 HDAC APT 의 서비스 이용약관, 개인정보처리방침, 개인정보 수집/이용에 동의하신 것으로 간주합니다.</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
 </resources>

@@ -10,148 +10,78 @@
         <variable name="signupForm" type="com.ingi.apthdac.common.models.SignUpForm"/>
     </data>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:gravity="center_horizontal"
         tools:context=".scenes.signup.SignUpActivity"
         >
-
-        <RelativeLayout
-            android:layout_weight="1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/ci_background"
-            >
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:layout_centerInParent="true"
-                android:keepScreenOn="true"
-                android:text="Sign Up"
-                android:textColor="#FFFFFF"
-                android:textSize="40sp"
-                android:textStyle="bold" />
-        </RelativeLayout>
-
         <LinearLayout
-            android:layout_weight="4"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:gravity="center_horizontal"
+            android:layout_centerInParent="true"
             >
 
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:orientation="vertical"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="USER NAME"
-                    android:textSize="15sp"
-                    android:gravity="center"
-                    android:alpha="0.7"
-                    />
-                <EditText
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:maxLines="1"
-                    android:inputType="textNoSuggestions"
-                    android:text="@={signupForm.userName}"
-                    />
-            </LinearLayout>
+                android:textSize="20sp"
+                android:maxLines="1"
+                android:inputType="textEmailAddress"
+                android:hint="이메일 주소"
+                android:layout_margin="20dp"
+                android:padding="10dp"
+                android:text="@={signupForm.email}"
+                />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="E-MAIL"
-                    android:textSize="15sp"
-                    android:gravity="center"
-                    android:alpha="0.7"
-                    />
-                <EditText
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:maxLines="1"
-                    android:inputType="textEmailAddress"
-                    android:text="@={signupForm.email}"
-                    />
-            </LinearLayout>
+                android:textSize="20sp"
+                android:maxLines="1"
+                android:inputType="textPassword"
+                android:hint="비밀번호"
+                android:layout_margin="20dp"
+                android:padding="10dp"
+                android:text="@={signupForm.password}"
+                />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="PASSWORD"
-                    android:textSize="15sp"
-                    android:gravity="center"
-                    android:alpha="0.7"
-                    />
-                <EditText
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:maxLines="1"
-                    android:inputType="textPassword"
-                    android:text="@={signupForm.password}"
-                    />
-            </LinearLayout>
+                android:textSize="20sp"
+                android:maxLines="1"
+                android:inputType="textPassword"
+                android:hint="비밀번호 확인"
+                android:layout_margin="20dp"
+                android:padding="10dp"
+                android:text="@={signupForm.retypePassword}"
+                />
 
-            <LinearLayout
-                android:layout_width="wrap_content"
+            <EditText
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="vertical"
-                >
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="RETYPE PASSWORD"
-                    android:textSize="15sp"
-                    android:gravity="center"
-                    android:alpha="0.7"
-                    />
-                <EditText
-                    android:layout_width="250dp"
-                    android:layout_height="wrap_content"
-                    android:textSize="20sp"
-                    android:maxLines="1"
-                    android:inputType="textPassword"
-                    android:text="@={signupForm.retypePassword}"
-                    />
-            </LinearLayout>
+                android:textSize="20sp"
+                android:maxLines="1"
+                android:inputType="textNoSuggestions"
+                android:hint="이름"
+                android:layout_margin="20dp"
+                android:padding="10dp"
+                android:text="@={signupForm.userName}"
+                />
 
             <Button
                 android:id="@+id/loginButton"
-                android:layout_width="160dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Sign Up"
                 android:textSize="20sp"
-                android:paddingLeft="40dp"
-                android:paddingRight="40dp"
-                android:layout_marginTop="40dp"
+                android:layout_margin="20dp"
+                android:padding="10dp"
                 android:maxLines="1"
-                android:onClick="@{activity::onSignupClick}"
+                android:onClick="@{view::onClickSignup}"
                 />
         </LinearLayout>
-    </LinearLayout>
+    </RelativeLayout>
 </layout>

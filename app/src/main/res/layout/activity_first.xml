@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+    <data>
+        <variable name="presenter" type="com.ingi.apthdac.scenes.firstScene.FirstPresenter"/>
+        <variable name="view" type="com.ingi.apthdac.scenes.firstScene.FirstView"/>
+        <variable name="activity" type="com.ingi.apthdac.scenes.firstScene.FirstActivity"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".scenes.firstScene.FirstActivity"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.4"
+            >
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="HDAC APT Platform"
+                android:textSize="20sp"
+                android:layout_margin="20dp"
+                android:padding="10dp"
+                android:gravity="center"
+                android:textStyle="bold"
+                android:background="#CCCCCC"
+                />
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            >
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/hdac_logo_text"
+                android:layout_marginTop="60dp"
+                android:scaleX="2"
+                android:scaleY="2"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/signup_notice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/signup_notice"
+                android:layout_margin="20dp"
+                android:textColor="#aaaaaa"
+                android:layout_alignParentBottom="true"
+                />
+
+            <Button
+                android:id="@+id/signin_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="로그인"
+                android:textSize="30sp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:padding="10dp"
+                android:layout_above="@id/signup_notice"
+                android:onClick="@{view::onClickSignIn}"
+                />
+
+            <Button
+                android:id="@+id/signup_button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="회원가입"
+                android:textSize="30sp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:padding="10dp"
+                android:gravity="center"
+                android:layout_above="@id/signin_button"
+                android:onClick="@{view::onClickSignUp}"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+</layout>

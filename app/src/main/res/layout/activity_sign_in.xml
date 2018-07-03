@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+        <variable name="presenter" type="com.ingi.apthdac.scenes.signin.SignInPresenter"/>
+        <variable name="view" type="com.ingi.apthdac.scenes.signin.SignInView"/>
+        <variable name="activity" type="com.ingi.apthdac.scenes.signin.SignInActivity"/>
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".scenes.signin.SignInActivity"
+        >
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/hdac_logo_text"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="150dp"
+            android:scaleX="2"
+            android:scaleY="2"
+            android:layout_gravity="center"
+            />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="이메일 입력"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:maxLines="1"
+            android:inputType="textNoSuggestions"
+            android:layout_margin="20dp"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="비밀번호 입력"
+            android:layout_gravity="center"
+            android:textSize="20sp"
+            android:maxLines="1"
+            android:inputType="textPassword"
+            android:layout_margin="20dp"
+            />
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="개인정보 수집/이용 동의"
+            android:layout_gravity="left"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="20dp"
+            />
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="로그인"
+            android:layout_gravity="center"
+            android:layout_margin="20dp"
+            android:onClick="@{view::onClickSignIn}"
+            />
+
+    </LinearLayout>
+</layout>
