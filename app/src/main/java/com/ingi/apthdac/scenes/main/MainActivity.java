@@ -1,5 +1,7 @@
 package com.ingi.apthdac.scenes.main;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -8,18 +10,31 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TabHost;
 
 import com.ingi.apthdac.R;
 import com.ingi.apthdac.common.BaseActivity;
+import com.ingi.apthdac.scenes.trading.TradingActivity;
+
+import java.util.ArrayList;
+
+import im.dacer.androidcharts.LineView;
 
 public class MainActivity extends BaseActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, MainView, View.OnClickListener{
+    MainPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.activity_main);
+
+        presenter = new MainPresenter();
+        presenter.attachView(this);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -34,6 +49,36 @@ public class MainActivity extends BaseActivity
 
         getSupportActionBar().setTitle("Min's Home");
 
+        Button tradingButton = (Button)findViewById(R.id.tradingButton);
+        tradingButton.setOnClickListener(this);
+
+        initTabView();
+        initGraphView();
+    }
+
+    private void initGraphView() {
+        ArrayList<String> strList = new ArrayList<>();
+        for(int i = 1; i <= 31; i++) {
+            strList.add(String.format("06-%02d", i));
+        }
+
+        ArrayList<ArrayList<Float>> dataLists = new ArrayList();
+        ArrayList<Float> miningData = new ArrayList();
+        for(int i=0; i < 31; i++) {
+            miningData.add(new Float(Math.random() + 1));
+        }
+        dataLists.add(miningData);
+
+        LineView lineView = (LineView)findViewById(R.id.line_view);
+        lineView.setDrawDotLine(false);
+        lineView.setShowPopup(LineView.SHOW_POPUPS_MAXMIN_ONLY); //optional
+        lineView.setBottomTextList(strList);
+        lineView.setColorArray(new int[]{Color.BLACK,Color.GREEN,Color.GRAY,Color.CYAN});
+        lineView.setFloatDataList(dataLists);
+    }
+
+
+    private void initTabView() {
         TabHost tabHost = (TabHost)findViewById(R.id.tabHost);
         tabHost.setup();
 
@@ -53,6 +98,7 @@ public class MainActivity extends BaseActivity
         tabHost.addTab(tabSpec3);
     }
 
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -65,19 +111,14 @@ public class MainActivity extends BaseActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
         }
@@ -88,7 +129,6 @@ public class MainActivity extends BaseActivity
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
-        // Handle navigation view item clicks here.
         int id = item.getItemId();
 
         switch(id){
@@ -114,5 +154,17 @@ public class MainActivity extends BaseActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onClickTrading() {
+        startActivity(new Intent(this, TradingActivity.class));
+    }
+
+    @Override
+    public void onClick(View view) {
+        int id = view.getId();
+        if(id == R.id.tradingButton)
+            onClickTrading();
     }
 }

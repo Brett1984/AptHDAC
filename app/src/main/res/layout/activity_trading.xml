@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable name="presenter" type="com.ingi.apthdac.scenes.trading.TradingPresenter"/>
+        <variable name="view" type="com.ingi.apthdac.scenes.trading.TradingView"/>
+        <variable name="activity" type="com.ingi.apthdac.scenes.trading.TradingActivity"/>
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".scenes.trading.TradingActivity">
+        <LinearLayout
+            android:id="@+id/toggleButtons"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            >
+            <TextView
+                android:id="@+id/byFavoriteRating"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="관심순위 기준"
+                android:background="@drawable/left_selectable_button"
+                android:clickable="true"
+                android:onClick="@{view.toggleButtons}"
+                android:textSize="20sp"
+                android:padding="10dp"
+                android:textAlignment="center"
+                />
+            <TextView
+                android:id="@+id/byScore"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:text="높은 가격순"
+                android:background="@drawable/right_selectable_button"
+                android:clickable="true"
+                android:onClick="@{view.toggleButtons}"
+                android:textSize="20sp"
+                android:padding="10dp"
+                android:textAlignment="center"
+                />
+        </LinearLayout>
+        <include
+            android:id="@+id/listTitle"
+            layout="@layout/price_trend_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/toggleButtons"
+        />
+        <LinearLayout
+            android:id="@+id/buyTicketLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="vertical"
+            android:padding="20dp">
+            <RadioGroup
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="우성아파트 주차장 이용권 구매"
+                />
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="우성아파트 헬스장 이용권 구매"
+                />
+            </RadioGroup>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="선택구매"
+            />
+        </LinearLayout>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/listTitle"
+            android:layout_above="@id/buyTicketLayout"
+        >
+        </ListView>
+
+    </RelativeLayout>
+
+</layout>
+

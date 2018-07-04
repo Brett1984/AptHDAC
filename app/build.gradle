@@ -38,4 +38,6 @@ dependencies {
 
     compileOnly 'org.projectlombok:lombok:1.18.0'
     annotationProcessor 'org.projectlombok:lombok:1.18.0'
+
+    implementation 'im.dacer:AndroidCharts:1.0.4'
 }

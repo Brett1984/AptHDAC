@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+>
+    <TextView
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="아파트명"
+        android:textSize="13sp"
+        android:textAlignment="center"
+    />
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="#aaaaaaaa"
+    />
+    <TextView
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="현재가격"
+        android:textSize="13sp"
+        android:textAlignment="center"
+    />
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="#aaaaaaaa"
+    />
+    <TextView
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="시세변동"
+        android:textSize="13sp"
+        android:textAlignment="center"
+    />
+    <View
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:background="#aaaaaaaa"
+    />
+    <TextView
+        android:layout_weight="1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="사용자 만족도"
+        android:textSize="13sp"
+        android:textAlignment="center"
+    />
+</LinearLayout>

@@ -8,12 +8,24 @@
     tools:context=".scenes.main.MainActivity"
     tools:showIn="@layout/app_bar_main">
 
-    <TextView
+    <!--<TextView-->
+        <!--android:id="@+id/graph"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:text="Replace to graph something..."-->
+        <!--/>-->
+
+    <HorizontalScrollView
         android:id="@+id/graph"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Replace to graph something..."
-        />
+        >
+        <view
+            android:layout_width="wrap_content"
+            android:layout_height="300dp"
+            class="im.dacer.androidcharts.LineView"
+            android:id="@+id/line_view" />
+    </HorizontalScrollView>
 
     <!--<android.support.v4.view.ViewPager-->
         <!--android:layout_width="match_parent"-->
@@ -67,6 +79,7 @@
                     </LinearLayout>
                 </FrameLayout>
                 <Button
+                    android:id="@+id/tradingButton"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="HDAC COIN 거래"
