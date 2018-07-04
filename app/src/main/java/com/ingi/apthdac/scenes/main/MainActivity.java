@@ -1,9 +1,6 @@
 package com.ingi.apthdac.scenes.main;
 
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -11,6 +8,7 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.TabHost;
 
 import com.ingi.apthdac.R;
 import com.ingi.apthdac.common.BaseActivity;
@@ -25,15 +23,6 @@ public class MainActivity extends BaseActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
@@ -42,6 +31,26 @@ public class MainActivity extends BaseActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        getSupportActionBar().setTitle("Min's Home");
+
+        TabHost tabHost = (TabHost)findViewById(R.id.tabHost);
+        tabHost.setup();
+
+        TabHost.TabSpec tabSpec1 = tabHost.newTabSpec("Tab spec 1");
+        tabSpec1.setContent(R.id.content1);
+        tabSpec1.setIndicator("내지갑");
+        tabHost.addTab(tabSpec1);
+
+        TabHost.TabSpec tabSpec2 = tabHost.newTabSpec("Tab spec 2");
+        tabSpec2.setContent(R.id.content2);
+        tabSpec2.setIndicator("에너지 사용현황");
+        tabHost.addTab(tabSpec2);
+
+        TabHost.TabSpec tabSpec3 = tabHost.newTabSpec("Tab spec 3");
+        tabSpec3.setContent(R.id.content3);
+        tabSpec3.setIndicator("환경 데이터현황");
+        tabHost.addTab(tabSpec3);
     }
 
     @Override
@@ -82,18 +91,24 @@ public class MainActivity extends BaseActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        switch(id){
+            case R.id.myInfomation:
+                break;
 
-        } else if (id == R.id.nav_slideshow) {
+            case R.id.myWallet:
+                break;
 
-        } else if (id == R.id.nav_manage) {
+            case R.id.miningStatus:
+                break;
 
-        } else if (id == R.id.nav_share) {
+            case R.id.spentResourceStatus:
+                break;
 
-        } else if (id == R.id.nav_send) {
+            case R.id.homeStatus:
+                break;
 
+            case R.id.otherApartmentStatus:
+                break;
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
